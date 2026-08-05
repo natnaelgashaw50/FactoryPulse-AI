@@ -5,7 +5,7 @@ spare parts so the platform is immediately explorable after setup.
 Run:  python seed.py
 """
 from werkzeug.security import generate_password_hash
-from app import create_app
+from backend.app import create_app
 from backend.extensions import db
 from backend.models import User, Machine, Sensor, Technician, SparePart, Inventory
 
