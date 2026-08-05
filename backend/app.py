@@ -1,11 +1,10 @@
 from flask import Flask, jsonify
 from backend.config import Config
-from extensions import db, jwt, cors, socketio
-from utils.email_service import send_email
-from routes import auth, machines, sensors, predictions, alerts, maintenance, inventory, chat, users, reports
-from iot.simulator import start_simulator
+from backend.extensions import db, jwt, cors, socketio
+from backend.utils.email_service import send_email
+from backend.routes import auth, machines, sensors, predictions, alerts, maintenance, inventory, chat, users, reports
+from backend.iot.simulator import start_simulator
 from dotenv import load_dotenv
-
 load_dotenv()
 
 def create_app():
