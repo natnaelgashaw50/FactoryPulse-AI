@@ -10,7 +10,7 @@ from flask_jwt_extended import (
     get_jwt,
 )
 
-from extensions import db
+from backend.extensions import db
 from models import User
 
 bp = Blueprint("auth", __name__, url_prefix="/api/auth")
