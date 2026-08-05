@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
 from extensions import db
-from models import Alert, Machine, Technician
+from backend.models import Alert, Machine, Technician
 from ai.self_healing_engine import recommend
 from utils.notifications import notify
 from utils.email_service import send_email

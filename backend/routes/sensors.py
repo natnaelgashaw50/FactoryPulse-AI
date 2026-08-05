@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
 from extensions import db
-from models import Sensor, SensorData
+from backend.models import Sensor, SensorData
 
 bp = Blueprint("sensors", __name__, url_prefix="/api/sensors")
 

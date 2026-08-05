@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
 from extensions import db
-from models import SparePart, Inventory
+from backend.models import SparePart, Inventory
 
 bp = Blueprint("inventory", __name__, url_prefix="/api/inventory")
 

@@ -16,7 +16,7 @@ from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 
 from extensions import db, socketio
-from models import Machine, Sensor, SensorData, Alert, Technician, Prediction
+from backend.models import Machine, Sensor, SensorData, Alert, Technician, Prediction
 from ai.anomaly_detection import score_reading
 from ai.predictive_maintenance import predict
 from ai.self_healing_engine import recommend

@@ -10,7 +10,7 @@ Swap `_answer_*` internals for an LLM-backed RAG pipeline later
 without changing the calling contract: ask(question) -> str.
 """
 import re
-from models import Machine, Alert, Prediction
+from backend.models import Machine, Alert, Prediction
 
 
 def _find_machine(question: str):

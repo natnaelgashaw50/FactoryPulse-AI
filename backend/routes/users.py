@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from extensions import db
-from models import User
+from backend.models import User
 from werkzeug.security import generate_password_hash
 from flask_jwt_extended import jwt_required
 from utils.permissions import role_required

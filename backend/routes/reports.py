@@ -8,7 +8,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
 from openpyxl import Workbook
 from extensions import db
-from models import Machine, Alert, Prediction, Report
+from backend.models import Machine, Alert, Prediction, Report
 
 bp = Blueprint("reports", __name__, url_prefix="/api/reports")
 

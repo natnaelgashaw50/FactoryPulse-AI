@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
 from extensions import db
-from models import Machine, Prediction
+from backend.models import Machine, Prediction
 from ai.predictive_maintenance import predict
 
 bp = Blueprint("predictions", __name__, url_prefix="/api/predictions")
