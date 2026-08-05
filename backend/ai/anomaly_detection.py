@@ -4,7 +4,7 @@ Isolation Forest. Flags a machine reading as anomalous when its
 feature vector sits far from the learned "normal operation" manifold.
 """
 from sklearn.ensemble import IsolationForest
-from ai.data_gen import generate_training_data
+from backend.ai.data_gen import generate_training_data
 
 _FEATURES = ["running_hours", "temperature", "vibration", "pressure", "voltage", "current"]
 _model = None
