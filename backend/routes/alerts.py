@@ -1,10 +1,10 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
-from extensions import db
+from backend.extensions import db
 from backend.models import Alert, Machine, Technician
-from ai.self_healing_engine import recommend
-from utils.notifications import notify
-from utils.email_service import send_email
+from backend.ai.self_healing_engine import recommend
+from backend.utils.notifications import notify
+from backend.utils.email_service import send_email
 bp = Blueprint("alerts", __name__, url_prefix="/api/alerts")
 
 

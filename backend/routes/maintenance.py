@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
-from extensions import db
+from backend.extensions import db
 from backend.models import Maintenance, Technician
 
 bp = Blueprint("maintenance", __name__, url_prefix="/api/maintenance")

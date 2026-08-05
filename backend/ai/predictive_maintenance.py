@@ -11,7 +11,7 @@ cached in memory. Swap generate_training_data() for a query against
 sensor_data / maintenance history to retrain on real data.
 """
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-from ai.data_gen import generate_training_data
+from backend.ai.data_gen import generate_training_data
 
 _FEATURES = ["running_hours", "temperature", "vibration", "pressure", "voltage", "current"]
 _clf = None

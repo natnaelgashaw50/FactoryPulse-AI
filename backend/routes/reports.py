@@ -7,7 +7,7 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, 
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
 from openpyxl import Workbook
-from extensions import db
+from backend.extensions import db
 from backend.models import Machine, Alert, Prediction, Report
 
 bp = Blueprint("reports", __name__, url_prefix="/api/reports")

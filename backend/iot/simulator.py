@@ -15,12 +15,12 @@ import random
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from extensions import db, socketio
+from backend.extensions import db, socketio
 from backend.models import Machine, Sensor, SensorData, Alert, Technician, Prediction
-from ai.anomaly_detection import score_reading
-from ai.predictive_maintenance import predict
-from ai.self_healing_engine import recommend
-from utils.notifications import notify
+from backend.ai.anomaly_detection import score_reading
+from backend.ai.predictive_maintenance import predict
+from backend.ai.self_healing_engine import recommend
+from backend.utils.notifications import notify
 
 _scheduler = None
 
