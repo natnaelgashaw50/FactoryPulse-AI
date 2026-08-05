@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ishfp
+      POSTGRES_USER: ishfp
+      POSTGRES_PASSWORD: ishfp
+    ports:
+      - "5432:5432"
+    volumes:
+      - ishfp_pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://ishfp:ishfp@db:5432/ishfp
+      JWT_SECRET_KEY: change-this-secret-in-production
+      CORS_ORIGINS: http://localhost:5173
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+volumes:
+  ishfp_pgdata:
