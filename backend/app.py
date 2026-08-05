@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from config import Config
+from backend.config import Config
 from extensions import db, jwt, cors, socketio
 from utils.email_service import send_email
 from routes import auth, machines, sensors, predictions, alerts, maintenance, inventory, chat, users, reports
