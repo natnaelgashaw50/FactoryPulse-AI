@@ -3,7 +3,7 @@ from backend.extensions import db
 from backend.models import User
 from werkzeug.security import generate_password_hash
 from flask_jwt_extended import jwt_required
-from utils.permissions import role_required
+from backend.utils.permissions import role_required
 
 bp = Blueprint(
     "users",
