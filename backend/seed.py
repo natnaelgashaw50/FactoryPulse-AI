@@ -6,8 +6,8 @@ Run:  python seed.py
 """
 from werkzeug.security import generate_password_hash
 from app import create_app
-from extensions import db
-from models import User, Machine, Sensor, Technician, SparePart, Inventory
+from backend.extensions import db
+from backend.models import User, Machine, Sensor, Technician, SparePart, Inventory
 
 MACHINES = [
     ("CNC Mill 01", "CNC", "Line A", (0, 0, 0)),
