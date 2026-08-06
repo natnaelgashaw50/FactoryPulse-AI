@@ -42,16 +42,18 @@ def create_app():
         from backend.models import User
         from werkzeug.security import generate_password_hash
 
-        if User.query.count() == 0:
-            db.session.add(
-                User(
-                    name="Admin User",
-                    email="admin@ishfp.local",
-                    role="Admin",
-                    password_hash=generate_password_hash("admin123"),
-                )
-            )
-            db.session.commit()
+       admin = User.query.filter_by(email="admin@ishfp.local").first()
+
+if not admin:
+    db.session.add(
+        User(
+            name="Admin User",
+            email="admin@ishfp.local",
+            role="Admin",
+            password_hash=generate_password_hash("admin123"),
+        )
+    )
+    db.session.commit()
 
     start_simulator(app)
     return app
