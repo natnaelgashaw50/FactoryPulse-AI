@@ -23,8 +23,22 @@ def create_app():
     def health():
         return jsonify({"status": "ok", "service": "Intelligent Self-Healing Factory Platform"})
 
-    with app.app_context():
-        db.create_all()
+  with app.app_context():
+    db.create_all()
+
+    from backend.models import User
+    from werkzeug.security import generate_password_hash
+
+    if User.query.count() == 0:
+        admin = User(
+            name="Admin User",
+            email="admin@ishfp.local",
+            role="Admin",
+            password_hash=generate_password_hash("admin123"),
+        )
+
+        db.session.add(admin)
+        db.session.commit()
 
     start_simulator(app)
     return app
