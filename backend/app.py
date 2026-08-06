@@ -6,7 +6,6 @@ from backend.routes import auth, machines, sensors, predictions, alerts, mainten
 from backend.iot.simulator import start_simulator
 from dotenv import load_dotenv
 load_dotenv()
-
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
@@ -16,33 +15,46 @@ def create_app():
     cors.init_app(app, resources={r"/api/*": {"origins": app.config["CORS_ORIGINS"]}})
     socketio.init_app(app)
 
-    for module in (auth, machines, sensors, predictions, alerts, maintenance, inventory, chat, users, reports):
+    for module in (
+        auth,
+        machines,
+        sensors,
+        predictions,
+        alerts,
+        maintenance,
+        inventory,
+        chat,
+        users,
+        reports,
+    ):
         app.register_blueprint(module.bp)
 
     @app.get("/api/health")
     def health():
-        return jsonify({"status": "ok", "service": "Intelligent Self-Healing Factory Platform"})
+        return jsonify({
+            "status": "ok",
+            "service": "Intelligent Self-Healing Factory Platform"
+        })
 
-     with app.app_context():
+    with app.app_context():
         db.create_all()
 
         from backend.models import User
         from werkzeug.security import generate_password_hash
 
         if User.query.count() == 0:
-            admin = User(
-                name="Admin User",
-                email="admin@ishfp.local",
-                role="Admin",
-                password_hash=generate_password_hash("admin123"),
+            db.session.add(
+                User(
+                    name="Admin User",
+                    email="admin@ishfp.local",
+                    role="Admin",
+                    password_hash=generate_password_hash("admin123"),
+                )
             )
-
-            db.session.add(admin)
             db.session.commit()
 
     start_simulator(app)
     return app
-
 app = create_app()
 @app.route("/api/test-email")
 def test_email():
