@@ -100,3 +100,16 @@ Natnael Gashaw
 ## License
 
 Commercial License
+## 🌐 Live Demo
+
+https://factory-pulse-ai-two.vercel.app
+
+## 💰 Purchase Full Source Code
+
+Buy the complete commercial version on Gumroad:
+
+https://gashaw3.gumroad.com/l/factorypulse-ai
+
+## 📧 Contact
+
+Author: Natnael Gashaw
